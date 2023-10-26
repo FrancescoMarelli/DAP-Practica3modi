@@ -1,0 +1,79 @@
+@startuml
+abstract class Framework.DivConqTemplate {
++ Solution solve(Problem)
+# {abstract}boolean isSimple(Problem)
+# {abstract}Solution simplySolve(Problem)
+# {abstract}Problem[] decompose(Problem)
+# {abstract}Solution combine(Problem,Solution[])
+}
+class Framework.BinSortDC {
+- int LEFT
+- int RIGHT
+# boolean isSimple(Problem)
+# Solution simplySolve(Problem)
+# Problem[] decompose(Problem)
+# Solution combine(Problem,Solution[])
+}
+interface Framework.Problem {
+}
+class Framework.MatrixMultiplyProb {
+~ ArrayList<ArrayList<Integer>> matrixA
+~ ArrayList<ArrayList<Integer>> matrixB
++ ArrayList<ArrayList<Integer>> getMatrixA()
++ ArrayList<ArrayList<Integer>> getMatrixB()
+}
+class Framework.Max3DivDC {
+- int FIRST_THIRD
+- int SECOND_THIRD
+- int THIRD_THIRD
+# boolean isSimple(Problem)
+# Solution simplySolve(Problem)
+# Problem[] decompose(Problem)
+# Solution combine(Problem,Solution[])
+}
+class Framework.Max3Prob {
+- ArrayList<Integer> startingArr
++ ArrayList<Integer> getStartingArr()
+}
+class Framework.BinSortProb {
+- ArrayList<Integer> disorderedArr
++ ArrayList<Integer> getDisorderedArr()
+}
+class Framework.BinSortSol {
+- ArrayList<Integer> orderedArr
++ ArrayList<Integer> getOrderedArr()
++ String toString()
+}
+interface Framework.Solution {
+}
+class Framework.MatrixMultiplySol {
+~ ArrayList<ArrayList<Integer>> matrixC
++ ArrayList<ArrayList<Integer>> getMatrixSol()
++ String toString()
+}
+class Framework.MatrixMultiplyDC {
+# boolean isSimple(Problem)
+# Solution simplySolve(Problem)
+# Problem[] decompose(Problem)
+# Solution combine(Problem,Solution[])
+}
+class Framework.BuildMatrix {
++ ArrayList<ArrayList<Integer>> BuildMatrix()
+}
+class Framework.Max3Sol {
+- ArrayList<Integer> max3
++ ArrayList<Integer> getMax3()
++ String toString()
+}
+
+
+Framework.DivConqTemplate <|-- Framework.BinSortDC
+Framework.Problem <|.. Framework.MatrixMultiplyProb
+Framework.DivConqTemplate <|-- Framework.Max3DivDC
+Framework.Problem <|.. Framework.Max3Prob
+Framework.Problem <|.. Framework.BinSortProb
+Framework.Solution <|.. Framework.BinSortSol
+Framework.Solution <|.. Framework.MatrixMultiplySol
+Framework.DivConqTemplate <|-- Framework.MatrixMultiplyDC
+Framework.Solution <|.. Framework.Max3Sol
+@enduml
