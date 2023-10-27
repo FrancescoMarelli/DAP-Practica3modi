@@ -26,16 +26,17 @@ public class MatrixMultiplyDC extends DivConqTemplate{
         ArrayList<ArrayList<Integer>> matrixA2 = new ArrayList<>();
         ArrayList<ArrayList<Integer>> matrixB2 = new ArrayList<>();
 
+        // Divide las matrices en 4
         for (int i = 0; i < n / 2; i++) {
             matrixA1.add(new ArrayList<>());
             matrixB1.add(new ArrayList<>());
             matrixA2.add(new ArrayList<>());
             matrixB2.add(new ArrayList<>());
             for (int j = 0; j < n / 2; j++) {
-                matrixA1.get(i).add(mmp.getMatrixA().get(i).get(j));
-                matrixB1.get(i).add(mmp.getMatrixB().get(i).get(j));
-                matrixA2.get(i).add(mmp.getMatrixA().get(i + n / 2).get(j));
-                matrixB2.get(i).add(mmp.getMatrixB().get(i + n / 2).get(j));
+                matrixA1.get(i).add(mmp.getMatrixA().get(i).get(j));  //  parte superior izquierda de la matriz A
+                matrixB1.get(i).add(mmp.getMatrixB().get(i).get(j));  // parte superior izquierda de la matriz B
+                matrixA2.get(i).add(mmp.getMatrixA().get(i + n / 2).get(j));  // parte inferior izquierda de la matriz A
+                matrixB2.get(i).add(mmp.getMatrixB().get(i + n / 2).get(j)); // parte inferior izquierda de la matriz B
             }
         }
         // Crea dos nuevos problemas
